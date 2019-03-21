@@ -90,6 +90,9 @@ nmap <f3> :set list! list?<cr>
 " Set f4 to call NERD tree
 nmap <f4> :NERDTreeToggle<CR>
 
+" This unsets the 'last search pattern' register by hitting Ctrl-L
+nnoremap <C-L> :nohlsearch<CR><C-L>
+
 " these can only be done when autocmd is loaded:
 if has("autocmd")
   " have Vim jump to the last position when reopening a file
