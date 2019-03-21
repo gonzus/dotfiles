@@ -90,6 +90,10 @@ nmap <f3> :set list! list?<cr>
 " Set f4 to call NERD tree
 nmap <f4> :NERDTreeToggle<CR>
 
+" paste mode - this will avoid unexpected effects when you
+" cut or copy some text from one window and paste it in Vim.
+set pastetoggle=<f5>
+
 " This unsets the 'last search pattern' register by hitting Ctrl-L
 nnoremap <C-L> :nohlsearch<CR><C-L>
 
