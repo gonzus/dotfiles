@@ -17,7 +17,6 @@ Plugin 'ziglang/zig.vim'          " ziglang support
 Plugin 'nanotech/jellybeans.vim'  " color scheme
 " Plugin 'qualiabyte/vim-colorstepper'  " cycle through color schemes
 " Plugin 'ctrlpvim/ctrlp.vim'       " fuzzy file, buffer, mru, tag, ... finder
-
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'elzr/vim-json'
