@@ -88,6 +88,9 @@ set cursorline
 " highlight CursorLine cterm=NONE ctermbg=52 ctermfg=NONE
 highlight CursorLine cterm=NONE ctermbg=8 ctermfg=NONE
 
+set fillchars+=vert:│
+" hi VertSplit cterm=NONE ctermbg=NONE guibg=NONE
+" hi VertSplit cterm=NONE
 
 " Set f2 to toggle line numbers
 nmap <f2> :set number! number?<cr>
