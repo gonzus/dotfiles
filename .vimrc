@@ -76,14 +76,18 @@ set statusline+=\ [%l/%L:%c]      "   cursor line/total lines,column
 set statusline+=\ %B              "   character under cursor in hex
 set statusline+=\ %P              "   percent through file
 
-set cursorline		              " underline current line
-set colorcolumn=80	              " show right margin
-
 set incsearch                     " search as characters are entered
 set hlsearch                      " highlight matches
 
-colorscheme slate                 " is it nice?
+" colorscheme slate                 " is it nice?
+colorscheme ron                 " is it nice?
 set bg=dark                       " dark background
+
+" show current line with a dark red highlight
+set cursorline
+" highlight CursorLine cterm=NONE ctermbg=52 ctermfg=NONE
+highlight CursorLine cterm=NONE ctermbg=8 ctermfg=NONE
+
 
 " Set f2 to toggle line numbers
 nmap <f2> :set number! number?<cr>
