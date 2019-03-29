@@ -47,6 +47,8 @@ filetype plugin indent on    " required
 "   h: all of the above, when editing help file
 "   a: all previous modes -- USE OPTION-MOUSE FOR XTERM BEHAVIOR
 "   r: for |hit-enter| and |more-prompt| prompt ???
+set path+=**                      " search files recursively (tab completion!)
+set wildmenu                      " display matched files with tab
 set mouse=a                       " use a mouse for all modes
 set ttymouse=xterm2               " use this terminal type when handling mouse
 
