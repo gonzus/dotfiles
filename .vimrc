@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 " other plugins go here
 Plugin 'scrooloose/nerdTree'      " tree browser, awesome (see f4 below)
 Plugin 'ziglang/zig.vim'          " ziglang support
+Plugin 'qualiabyte/vim-colorstepper'  " cycle through color schemes
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'elzr/vim-json'
