@@ -50,10 +50,14 @@ filetype plugin indent on    " required
 "   h: all of the above, when editing help file
 "   a: all previous modes -- USE OPTION-MOUSE FOR XTERM BEHAVIOR
 "   r: for |hit-enter| and |more-prompt| prompt ???
-set path+=**                      " search files recursively (tab completion!)
-set wildmenu                      " display matched files with tab
 set mouse=a                       " use a mouse for all modes
 set ttymouse=xterm2               " use this terminal type when handling mouse
+set ttyfast                       " we have a fast tty, just use it
+set encoding=utf8                 " use UTF8 everywhere!
+
+set path+=**                      " search files recursively (tab completion!)
+set wildmenu                      " display matched files with tab
+set clipboard=unnamed             " make vim use same clipboard as system; not working?
 
 set expandtab                     " tab => spaces, num of spaces set in tabstop
 set shiftwidth=4                  " number of spaces to use for autoindenting
@@ -123,4 +127,5 @@ if has("autocmd")
   au BufWritePre * :%s/\s\+$//e
 endif
 
+" for zig files, run zigmft on save
 let g:zig_fmt_autosave = 1
