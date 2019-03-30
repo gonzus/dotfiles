@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdTree'      " tree browser, awesome (see f4 below)
 Plugin 'ziglang/zig.vim'          " ziglang support
 Plugin 'qualiabyte/vim-colorstepper'  " cycle through color schemes
+Plugin 'nanotech/jellybeans.vim'  " color scheme
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'elzr/vim-json'
@@ -79,8 +80,7 @@ set statusline+=\ %P              "   percent through file
 set incsearch                     " search as characters are entered
 set hlsearch                      " highlight matches
 
-" colorscheme slate                 " is it nice?
-colorscheme ron                 " is it nice?
+colorscheme jellybeans            " is it nice?
 set bg=dark                       " dark background
 
 " show current line with a dark red highlight
