@@ -89,6 +89,8 @@ set hlsearch                      " highlight matches
 colorscheme jellybeans            " is it nice?
 set bg=dark                       " dark background
 
+highlight StatusLine cterm=NONE ctermbg=59 ctermfg=252
+
 " show current line with a dark grey highlight
 set cursorline
 highlight CursorLine cterm=NONE ctermbg=237 ctermfg=NONE
@@ -99,7 +101,7 @@ highlight CursorLine cterm=NONE ctermbg=237 ctermfg=NONE
 " but that makes them too similar to tmux windows, so instead
 " we use a white empty space, just like the status line:
 set fillchars+=vert:\  " need this comment for that trailing space
-highlight VertSplit cterm=NONE ctermbg=15 ctermfg=NONE
+highlight VertSplit cterm=NONE ctermbg=59 ctermfg=252
 
 " Set f2 to toggle line numbers
 nmap <f2> :set number! number?<cr>
