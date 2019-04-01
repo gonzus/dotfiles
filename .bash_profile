@@ -9,7 +9,10 @@ export EDITOR=vim
 
 # if it exists, use script to turn proxy on
 if [ -f $HOME/bin/proxy ]; then
-    source $HOME/bin/proxy 1
+    proxy='webproxy.corp.booking.com'
+    count=$(host $proxy | egrep 'has.*address' | wc -l)
+    printf "Host [%s], count [%d]\n" $proxy $count
+    source $HOME/bin/proxy $count
 fi
 
 # if it exists, load perlbrew settings
