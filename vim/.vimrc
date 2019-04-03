@@ -11,6 +11,13 @@ call plug#end()
 " autodetect file type
 filetype plugin indent on
 
+set viminfo=%,'1000,/1000,:1000,n$HOME/.vim/viminfo
+"           | |     |     |     +: viminfo file path inside VIM directory
+"           | |     |     + command-line history saved
+"           | |     + search history saved
+"           | + file marks saved
+"           + save / restore buffer list
+
 " set mouse; possible values are:
 "   n: only to move current position around
 "   v: only for visual mode
