@@ -1,45 +1,15 @@
-" these settings are required and must go BEFORE loading Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" do not be compatible with original VI
+set nocompatible
 
+" manage our plugins with Plug
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " tree browser
+Plug 'ziglang/zig.vim', { 'for': 'zig' }                " ziglang support
+Plug 'nanotech/jellybeans.vim'                          " color scheme
+call plug#end()
 
-" ==  Vundle -- this must go here, let it be!  vvvvvvvvvvvv  ================
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" other plugins go here
-Plugin 'scrooloose/nerdTree'      " tree browser, awesome (see f4 below)
-Plugin 'ziglang/zig.vim'          " ziglang support
-Plugin 'nanotech/jellybeans.vim'  " color scheme
-" Plugin 'qualiabyte/vim-colorstepper'  " cycle through color schemes
-" Plugin 'ctrlpvim/ctrlp.vim'       " fuzzy file, buffer, mru, tag, ... finder
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'leafgarland/typescript-vim'
-" Plugin 'elzr/vim-json'
-" Plugin 'octol/vim-cpp-enhanced-highlight'
-" Bundle 'majutsushi/tagbar'
-" Bundle 'geoffharcourt/vim-matchit'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
-filetype plugin indent on    " required
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" ==  Vundle -- this must go here, let it be!  ^^^^^^^^^^^^  ================
-
+" autodetect file type
+filetype plugin indent on
 
 " set mouse; possible values are:
 "   n: only to move current position around
