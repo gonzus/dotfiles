@@ -112,3 +112,6 @@ endif
 
 " for zig files, run zigmft on save
 let g:zig_fmt_autosave = 1
+
+" show hidden files in NERDTree (toggle with I)
+let NERDTreeShowHidden=1
