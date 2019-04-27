@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " tree browser
 Plug 'ziglang/zig.vim', { 'for': 'zig' }                " ziglang support
 Plug 'nanotech/jellybeans.vim'                          " color scheme
+Plug 'ryanoasis/vim-devicons'                           " font icons
 call plug#end()
 
 " autodetect file type
@@ -29,7 +30,7 @@ set viminfo=%,'1000,/1000,:1000,n$HOME/.vim/viminfo
 set mouse=a                       " use a mouse for all modes
 set ttymouse=xterm2               " use this terminal type when handling mouse
 set ttyfast                       " we have a fast tty, just use it
-set encoding=utf8                 " use UTF8 everywhere!
+set encoding=UTF8                 " use UTF8 everywhere!
 
 set path+=**                      " search files recursively (tab completion!)
 set wildmenu                      " display matched files with tab
