@@ -32,6 +32,10 @@ set ttymouse=xterm2               " use this terminal type when handling mouse
 set ttyfast                       " we have a fast tty, just use it
 set encoding=UTF8                 " use UTF8 everywhere!
 
+" when shifting a block around, keep the selection
+vmap < <gv
+vmap > >gv
+
 set path+=**                      " search files recursively (tab completion!)
 set wildmenu                      " display matched files with tab
 set clipboard=unnamed             " make vim use same clipboard as system; not working?
