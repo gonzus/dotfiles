@@ -3,12 +3,19 @@ set nocompatible
 
 " manage our plugins with Plug
 call plug#begin('~/.vim/plugged')
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " tree browser
-Plug 'ziglang/zig.vim', { 'for': 'zig' }                " ziglang support
-Plug 'nanotech/jellybeans.vim'                          " color scheme
 Plug 'ryanoasis/vim-devicons'                           " font icons
-Plug 'leafgarland/typescript-vim'                       " typescript syntax
 Plug '~/.fzf'                                           " fuzzy finder
+
+" lang support
+Plug 'ziglang/zig.vim', { 'for': 'zig' }                " ziglang support
+Plug 'leafgarland/typescript-vim'                       " typescript syntax
+
+" color schemes
+Plug 'nanotech/jellybeans.vim'
+Plug 'sickill/vim-monokai'
+Plug 'mcmartelle/vim-monokai-bold'
 
 call plug#end()
 
@@ -74,7 +81,9 @@ set statusline+=\ %P              "   percent through file
 set incsearch                     " search as characters are entered
 set hlsearch                      " highlight matches
 
-colorscheme jellybeans            " is it nice?
+colorscheme jellybeans
+" colorscheme monokai
+" colorscheme monokai-bold
 set bg=dark                       " dark background
 
 highlight StatusLine cterm=NONE ctermbg=59 ctermfg=252
