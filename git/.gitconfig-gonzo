@@ -1,9 +1,5 @@
-[user]
-  name = Gonzalo Diethelm
-  email = gonzalo.diethelm@gmail.com
+# vi:filetype=gitconfig
 
-# [github]
-#   user = gonzus
-#
-# [url "git@github.com"]
-#   insteadOf = "https://github.com/"
+[user]
+    name = Gonzalo Diethelm
+    email = gonzalo.diethelm@gmail.com

@@ -1,8 +1,10 @@
+# vi:filetype=gitconfig
+
 [commit]
     verbose = true
 
 [includeIf "gitdir:~/src/booking/"]
-  path = ~/src/booking/.gitconfig-booking
+    path = ~/src/booking/.gitconfig-booking
 
 [includeIf "gitdir:~/src/gonzo/"]
-  path = ~/src/gonzo/.gitconfig-gonzo
+    path = ~/src/gonzo/.gitconfig-gonzo
