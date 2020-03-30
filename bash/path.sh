@@ -77,7 +77,9 @@ path=${PATH:-}
 paths_before=( \
     "$HOME/bin" \
     "$HOME/perl5/bin" \
+    "/usr/local/opt/node@10/bin" \
     "/usr/local/opt/gnu-tar/libexec/gnubin" \
+    "/usr/local/opt/gnu-getopt/bin" \
     "/usr/local/opt/flex/bin" \
     "/usr/local/opt/bison/bin" \
     "/usr/local/opt/llvm/bin" \
@@ -85,6 +87,7 @@ paths_before=( \
 paths_after=( \
     "/usr/sbin" \
     "/sbin" \
+    "$HOME/src/depot_tools" \
 )
 check_and_add_to_path 'path' ${paths_before[@]} ${paths_after[@]}
 export PATH="$path"
