@@ -7,6 +7,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " tree browser
 Plug 'ziglang/zig.vim', { 'for': 'zig' }                " ziglang support
 Plug 'nanotech/jellybeans.vim'                          " color scheme
 Plug 'ryanoasis/vim-devicons'                           " font icons
+Plug '~/.fzf'                                           " fuzzy finder
+
 call plug#end()
 
 " autodetect file type
@@ -35,6 +37,10 @@ set encoding=UTF8                 " use UTF8 everywhere!
 " when shifting a block around, keep the selection
 vmap < <gv
 vmap > >gv
+
+" C-n and C-p navigate through quickfix messages
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
 
 set path+=**                      " search files recursively (tab completion!)
 set wildmenu                      " display matched files with tab
@@ -89,10 +95,6 @@ nmap <f2> :set number! number?<cr>
 
 " Set f3 to toggle showing invisible characters
 nmap <f3> :set list! list?<cr>
-
-" Set f4 to call NERD tree
-nmap <f4> :NERDTreeToggle<CR>
-
 " paste mode - this will avoid unexpected effects when you
 " cut or copy some text from one window and paste it in Vim.
 set pastetoggle=<f5>
@@ -115,3 +117,10 @@ let g:zig_fmt_autosave = 1
 
 " show hidden files in NERDTree (toggle with I)
 let NERDTreeShowHidden=1
+
+" Set f4 to call FZF
+nmap <f4> :FZF<CR>
+
+" set some FZF keys
+nnoremap <silent> <leader>f :FZF<cr>
+nnoremap <silent> <leader>F :FZF ~<cr>
