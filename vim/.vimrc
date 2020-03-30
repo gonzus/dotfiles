@@ -7,6 +7,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " tree browser
 Plug 'ziglang/zig.vim', { 'for': 'zig' }                " ziglang support
 Plug 'nanotech/jellybeans.vim'                          " color scheme
 Plug 'ryanoasis/vim-devicons'                           " font icons
+Plug 'leafgarland/typescript-vim'                       " typescript syntax
 Plug '~/.fzf'                                           " fuzzy finder
 
 call plug#end()
@@ -110,6 +111,10 @@ if has("autocmd")
 
   " strip trailing whitespace on save
   au BufWritePre * :%s/\s\+$//e
+
+  " Set the filetype based on the file's extension
+  au BufRead,BufNewFile *.xs   set filetype=c
+  au BufRead,BufNewFile *.t    set filetype=perl
 endif
 
 " for zig files, run zigmft on save
