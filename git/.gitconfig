@@ -1,6 +1,8 @@
-# This is Git's per-user configuration file.
-[user]
-	name = Gonzalo Diethelm
-	email = gonzalo.diethelm@gmail.com
-[credential]
-	helper = osxkeychain
+[commit]
+    verbose = true
+
+[includeIf "gitdir:~/src/booking/"]
+  path = ~/src/booking/.gitconfig-booking
+
+[includeIf "gitdir:~/src/gonzo/"]
+  path = ~/src/gonzo/.gitconfig-gonzo

@@ -1,0 +1,9 @@
+[user]
+  name = Gonzalo Diethelm
+  email = gonzalo.diethelm@booking.com
+
+# [github]
+#   user = gonzus
+#
+# [url "git@github.com"]
+#   insteadOf = "https://github.com/"
