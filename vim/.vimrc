@@ -81,10 +81,12 @@ set statusline+=\ %P              "   percent through file
 set incsearch                     " search as characters are entered
 set hlsearch                      " highlight matches
 
-colorscheme jellybeans
 " colorscheme monokai
 " colorscheme monokai-bold
+colorscheme jellybeans
 set bg=dark                       " dark background
+let g:jellybeans_use_term_italics = 1
+highlight Comment cterm=italic
 
 highlight StatusLine cterm=NONE ctermbg=59 ctermfg=252
 
