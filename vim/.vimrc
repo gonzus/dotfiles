@@ -6,7 +6,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " tree browser
 Plug 'ryanoasis/vim-devicons'                           " font icons
-Plug '~/.fzf'                                           " fuzzy finder
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fuzzy finder
+Plug 'junegunn/fzf.vim'
+
+Plug 'mbbill/undotree'                                  " shows undo visually
 
 " lang support
 Plug 'ziglang/zig.vim', { 'for': 'zig' }                " ziglang support
@@ -14,8 +18,6 @@ Plug 'leafgarland/typescript-vim'                       " typescript syntax
 
 " color schemes
 Plug 'nanotech/jellybeans.vim'
-Plug 'sickill/vim-monokai'
-Plug 'mcmartelle/vim-monokai-bold'
 
 call plug#end()
 
@@ -81,8 +83,6 @@ set statusline+=\ %P              "   percent through file
 set incsearch                     " search as characters are entered
 set hlsearch                      " highlight matches
 
-" colorscheme monokai
-" colorscheme monokai-bold
 colorscheme jellybeans
 set bg=dark                       " dark background
 let g:jellybeans_use_term_italics = 1
@@ -107,9 +107,16 @@ nmap <f2> :set number! number?<cr>
 
 " Set f3 to toggle showing invisible characters
 nmap <f3> :set list! list?<cr>
+
+" Set f4 to call FZF
+nmap <f4> :FZF<CR>
+
 " paste mode - this will avoid unexpected effects when you
 " cut or copy some text from one window and paste it in Vim.
 set pastetoggle=<f5>
+
+" Set f6 to call UndoTree
+nnoremap <F6> :UndotreeToggle<cr>
 
 " This unsets the 'last search pattern' register by hitting Ctrl-L
 nnoremap <C-L> :nohlsearch<CR><C-L>
@@ -133,9 +140,6 @@ let g:zig_fmt_autosave = 1
 
 " show hidden files in NERDTree (toggle with I)
 let NERDTreeShowHidden=1
-
-" Set f4 to call FZF
-nmap <f4> :FZF<CR>
 
 " set some FZF keys
 nnoremap <silent> <leader>f :FZF<cr>
