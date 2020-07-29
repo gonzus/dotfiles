@@ -19,6 +19,11 @@ if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
     source $HOME/perl5/perlbrew/etc/bashrc
 fi
 
+# if it exists, load sdkman settings
+if [ -f $DOTFILES/bash/sdkman.sh ]; then
+    source $DOTFILES/bash/sdkman.sh
+fi
+
 # if it exists, load alias settings
 if [ -f $DOTFILES/bash/alias.sh ]; then
     source $DOTFILES/bash/alias.sh
