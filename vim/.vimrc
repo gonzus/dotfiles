@@ -84,7 +84,7 @@ set incsearch                     " search as characters are entered
 set hlsearch                      " highlight matches
 
 colorscheme jellybeans
-set bg=dark                       " dark background
+set background=dark               " dark background
 let g:jellybeans_use_term_italics = 1
 highlight Comment cterm=italic
 
@@ -133,6 +133,7 @@ if has("autocmd")
   " Set the filetype based on the file's extension
   au BufRead,BufNewFile *.xs   set filetype=c
   au BufRead,BufNewFile *.t    set filetype=perl
+  au BufRead,BufNewFile *.gyp  set filetype=json
 endif
 
 " for zig files, run zigmft on save
@@ -144,3 +145,6 @@ let NERDTreeShowHidden=1
 " set some FZF keys
 nnoremap <silent> <leader>f :FZF<cr>
 nnoremap <silent> <leader>F :FZF ~<cr>
+
+" Indent whole file while preserving cursor location with <leader>=
+nnoremap <leader>= m'gg=G`'
