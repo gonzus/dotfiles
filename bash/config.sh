@@ -24,6 +24,11 @@ if [ -f $DOTFILES/bash/alias.sh ]; then
     source $DOTFILES/bash/alias.sh
 fi
 
+# if it exists, load less settings
+if [ -f $DOTFILES/bash/less.sh ]; then
+    source $DOTFILES/bash/less.sh
+fi
+
 # if it exists, load path settings
 if [ -f $DOTFILES/bash/path.sh ]; then
     source $DOTFILES/bash/path.sh
