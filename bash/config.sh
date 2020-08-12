@@ -1,5 +1,8 @@
 # vi:filetype=sh
 
+# needs to be done early
+export TERM=xterm-256color
+
 # colorful prompt with time, date, user, host and cwd
 export PS1="\[\e[32m\]\A\[\e[m\] \[\e[36m\]\$(date +'%a %d/%b')\[\e[m\] \[\e[33m\]\u@\h\[\e[m\] \[\e[31m\]\w\[\e[m\]\n\[\e[1;31m\]\$\[\e[m\] "
 
