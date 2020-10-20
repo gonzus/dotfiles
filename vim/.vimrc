@@ -11,6 +11,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " fuzzy finder
 Plug 'junegunn/fzf.vim'
 
 Plug 'mbbill/undotree'                                  " shows undo visually
+Plug 'luochen1990/rainbow'                              " rainbow parentheses
 
 " lang support
 Plug 'ziglang/zig.vim', { 'for': 'zig' }                " ziglang support
@@ -134,6 +135,8 @@ if has("autocmd")
   au BufRead,BufNewFile *.xs   set filetype=c
   au BufRead,BufNewFile *.t    set filetype=perl
   au BufRead,BufNewFile *.gyp  set filetype=json
+
+  au Filetype typescript setlocal ts=2 sw=2 expandtab
 endif
 
 " for zig files, run zigmft on save
@@ -141,6 +144,10 @@ let g:zig_fmt_autosave = 1
 
 " show hidden files in NERDTree (toggle with I)
 let NERDTreeShowHidden=1
+
+" enable rainbow parentheses
+" set to 0 if you want to enable it later via :RainbowToggle
+let g:rainbow_active = 1
 
 " set some FZF keys
 nnoremap <silent> <leader>f :FZF<cr>
