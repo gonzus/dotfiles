@@ -11,3 +11,6 @@ fi
 if [ -f $DOTFILES/bash/booking/bash/config.sh ]; then
     source $DOTFILES/bash/booking/bash/config.sh
 fi
+
+# export colors used by ls
+eval $(dircolors)

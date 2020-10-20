@@ -3,8 +3,17 @@
 # needs to be done early
 export TERM=xterm-256color
 
+# fiddle with the hostname we show for the prompt
+# IT does not want me to change my real hostname
+PROMPT_HOST=${HOSTNAME:-$(hostname)}
+if [ "$PROMPT_HOST" = "LL8G2L4H2" ]
+then
+    PROMPT_HOST="laptop-gonzo"
+fi
+export PROMPT_HOST
+
 # colorful prompt with time, date, user, host and cwd
-export PS1="\[\e[32m\]\A\[\e[m\] \[\e[36m\]\$(date +'%a %d/%b')\[\e[m\] \[\e[33m\]\u@\h\[\e[m\] \[\e[31m\]\w\[\e[m\]\n\[\e[1;31m\]\$\[\e[m\] "
+export PS1="\[\e[32m\]\A\[\e[m\] \[\e[36m\]\$(date +'%a %d/%b')\[\e[m\] \[\e[33m\]\u@${PROMPT_HOST}\[\e[m\] \[\e[31m\]\w\[\e[m\]\n\[\e[1;31m\]\$\[\e[m\] "
 
 # make sure anything using $EDITOR finds vim
 # something like less (with key v):
