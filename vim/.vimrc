@@ -137,6 +137,7 @@ if has("autocmd")
   au BufRead,BufNewFile *.gyp  set filetype=json
 
   au Filetype typescript setlocal ts=2 sw=2 expandtab
+  au Filetype javascript setlocal ts=2 sw=2 expandtab
 endif
 
 " for zig files, run zigmft on save
