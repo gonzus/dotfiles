@@ -24,8 +24,8 @@ check_and_add_to_path() {
             # skip duplicates
             continue
         fi
-        if [ ! -d $x ]; then
-            # skip non-dirs
+        if [ $x == "/*" -a ! -d $x ]; then
+            # skip non-dirs when absolute
             continue
         fi
         elems="$elems:$x"
@@ -38,8 +38,8 @@ check_and_add_to_path() {
             # skip duplicates
             continue
         fi
-        if [ ! -d $x ]; then
-            # skip non-dirs
+        if [ $x == "/*" -a ! -d $x ]; then
+            # skip non-dirs when absolute
             continue
         fi
         elems="$elems:$x"
@@ -52,8 +52,8 @@ check_and_add_to_path() {
             # skip duplicates
             continue
         fi
-        if [ ! -d $x ]; then
-            # skip non-dirs
+        if [ $x == "/*" -a ! -d $x ]; then
+            # skip non-dirs when absolute
             continue
         fi
         elems="$elems:$x"
@@ -73,8 +73,11 @@ paths_after=( \
 check_and_add_to_path 'path' ${paths_before[@]} ${paths_after[@]}
 export MANPATH="$path"
 
+zig_version=0.8.0
 path=${PATH:-}
 paths_before=( \
+    "./node_modules/.bin" \
+    "$HOME/bin/zig-linux-x86_64-${zig_version}" \
     "$HOME/bin" \
     "$HOME/perl5/bin" \
     "/usr/local/opt/node@10/bin" \

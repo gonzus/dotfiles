@@ -3,6 +3,9 @@
 # needs to be done early
 export TERM=xterm-256color
 
+# export colors used by ls
+eval $(dircolors)
+
 # fiddle with the hostname we show for the prompt
 # IT does not want me to change my real hostname
 PROMPT_HOST=${HOSTNAME:-$(hostname)}
@@ -14,6 +17,9 @@ export PROMPT_HOST
 
 # colorful prompt with time, date, user, host and cwd
 export PS1="\[\e[32m\]\A\[\e[m\] \[\e[36m\]\$(date +'%a %d/%b')\[\e[m\] \[\e[33m\]\u@${PROMPT_HOST}\[\e[m\] \[\e[31m\]\w\[\e[m\]\n\[\e[1;31m\]\$\[\e[m\] "
+
+# better colors for jq output
+export JQ_COLORS="1;30:1;36:1;31:0;39:0;32:1;39:1;39"
 
 # make sure anything using $EDITOR finds vim
 # something like less (with key v):
