@@ -8,3 +8,11 @@
 
 [includeIf "gitdir:~/src/gonzo/"]
     path = ~/src/gonzo/.gitconfig-gonzo
+
+[alias]
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    logall = log --all --oneline --graph --decorate
+
+[core]
+    pager = /usr/share/doc/git/contrib/diff-highlight/diff-highlight | less
