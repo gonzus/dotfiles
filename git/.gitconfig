@@ -5,6 +5,7 @@
 [core]
   editor=/Users/gonzo/homebrew/bin/nvim
   pager = delta
+	excludesfile = /Users/gonzo/.gitignore
 
 [init]
   defaultBranch = master
