@@ -1,0 +1,51 @@
+[user]
+  name = Gonzalo Diethelm
+  email = gonzo@fb.com
+
+[core]
+  editor=/Users/gonzo/homebrew/bin/nvim
+  pager = delta
+
+[init]
+  defaultBranch = master
+
+[commit]
+  verbose = true
+
+[grep]
+  lineNumber = true
+
+
+# Settings for git-delta
+
+[include]
+    path = ~/.config/delta/themes.gitconfig
+
+[interactive]
+  diffFilter = delta --color-only
+[add.interactive]
+  useBuiltin = false # required for git 2.37.0
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  light = false      # terminal with a dark background color
+  side-by-side = true
+  line-numbers = true
+# features = collared-trogon
+# features = coracias-caudatus
+# features = hoopoe
+# features = tangara-chilensis
+# features = villsau
+# features = woolly-mammoth
+# features = calochortus-lyallii
+# features = mantis-shrimp
+# features = mantis-shrimp-lite
+  features = zebra-dark
+# features = zebra-light
+# features = chameleon
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
