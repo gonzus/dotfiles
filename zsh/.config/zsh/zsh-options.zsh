@@ -1,19 +1,25 @@
 # Remember where config is, in case we run compinstall again
 zstyle :compinstall filename "$ZDOTDIR/.zshrc"
+zstyle ':completion:*' menu select
 
 # Mark compinit as an internal function, not an external program
 autoload -Uz compinit
 
-# Launch zsh's completion system
-compinit
+# show completion lists
+zmodload zsh/complist
+_comp_options+=(globdots)		# Include hidden files.
+
+# Colors
+autoload -Uz colors && colors
+
+# Cycle through history based on characters already typed on the line
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
 # allow comments on the command line
 setopt INTERACTIVE_COMMENTS
-
-# Keep oodles of command history (see https://fburl.com/zshhistory).
-HISTFILE="$ZDOTDIR/zsh_history"
-HISTSIZE=1000000
-SAVEHIST=1000000
 
 # zsh sessions will append their history list to the history file, not replace it
 setopt APPEND_HISTORY
@@ -26,6 +32,14 @@ setopt COMPLETE_IN_WORD
 
 # don't try to glob patterns
 unsetopt nomatch
+
+# no beeps please
+unsetopt BEEP
+
+# Keep oodles of command history (see https://fburl.com/zshhistory).
+HISTFILE="$ZDOTDIR/zsh_history"
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 # Configure environment variables used by brew
 eval "$($HOME/homebrew/bin/brew shellenv)"
@@ -43,3 +57,6 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND="rg --files"
   export FZF_DEFAULT_OPTS="-m --height 50% --border"
 fi
+
+# Launch zsh's completion system
+compinit
