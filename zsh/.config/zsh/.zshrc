@@ -56,10 +56,11 @@ fi
 
 # make sure anything using $EDITOR finds vim; for example, key "v" inside "less"
 # export EDITOR=/usr/bin/vim
-export EDITOR=/Users/gonzo/homebrew/bin/nvim
+export EDITOR=/Users/gonzo/.local/bin/lvim
 export VISUAL=$EDITOR
 alias vi=$EDITOR
 alias vim=$EDITOR
+alias lvim=$EDITOR
 
 # Configure environment variables used by brew
 eval "$($HOME/homebrew/bin/brew shellenv)"
