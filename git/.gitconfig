@@ -3,7 +3,7 @@
   email = gonzo@fb.com
 
 [core]
-  editor=/Users/gonzo/homebrew/bin/nvim
+  editor=$EDITOR
   pager = delta
 	excludesfile = /Users/gonzo/.gitignore
 
