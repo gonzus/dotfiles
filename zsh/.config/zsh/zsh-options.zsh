@@ -9,9 +9,6 @@ autoload -Uz compinit
 zmodload zsh/complist
 _comp_options+=(globdots)		# Include hidden files.
 
-# Colors
-autoload -Uz colors && colors
-
 # Cycle through history based on characters already typed on the line
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
