@@ -11,8 +11,11 @@ an executable
 -- general
 vim.opt.cmdheight = 1
 vim.opt.wrap = true
-vim.cmd [[set whichwrap=b,s]] -- allow only backspace and space keys to wrap around lines
+vim.opt.whichwrap = 'b,s' -- allow only backspace and space keys to wrap around lines
 vim.cmd [[set iskeyword+=-]] -- by default, include '-' as part of a word
+
+-- this does not work
+-- vim.cmd [[hi CursorLine gui=underline cterm=underline]] -- underline cursor line
 
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -24,8 +27,11 @@ lvim.colorscheme = "jellybeans-nvim"
 lvim.leader = "\\"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+-- This unsets the 'last search pattern' register by hitting Ctrl-L
+lvim.keys.normal_mode["<C-l>"] = ":nohlsearch<CR><C-L>"
+lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
+
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
