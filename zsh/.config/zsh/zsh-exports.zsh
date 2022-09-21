@@ -5,9 +5,6 @@ export VISUAL=$EDITOR
 # If possible, use colors everywhere
 export CLICOLOR=1
 
-# colorful prompt with time, date, user, host and cwd
-export PROMPT=$'%F{green}%T%f %F{cyan}%D{%a %d/%b}%f %F{yellow}%n@%m%f %F{red}%~%f\n%(0?::%F{red}[%?]%f )%F{magenta}%(!:#:$)%f '
-
 # Define format of information printed with "time CMD..."
 export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E\nmemory\t%M KB'
 
