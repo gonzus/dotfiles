@@ -1,3 +1,5 @@
+# THESE NEED TO GO AFTER EXPORTS
+
 # aliases for vim
 alias vi=$EDITOR
 alias vim=$EDITOR
@@ -8,7 +10,6 @@ alias sshk="kitty +kitten ssh"
 
 OS="$(uname -s)"
 case "$OS" in
-
   Darwin) # Mac OS X
     # use colors
     alias ls="ls --color=auto -Fh"

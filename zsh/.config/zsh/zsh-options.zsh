@@ -36,27 +36,10 @@ unsetopt nomatch
 # no beeps please
 unsetopt BEEP
 
-# Keep oodles of command history (see https://fburl.com/zshhistory).
+# Keep oodles of command history
 HISTFILE="$ZDOTDIR/zsh_history"
 HISTSIZE=1000000
 SAVEHIST=1000000
-
-# Configure environment variables used by brew
-eval "$($HOME/homebrew/bin/brew shellenv)"
-
-# fzf auto-completion
-# ---------------
-[[ $- == *i* ]] && source "$HOME/homebrew/opt/fzf/shell/completion.zsh" 2> /dev/null
-
-# fzf key bindings
-# ------------
-source "$HOME/homebrew/opt/fzf/shell/key-bindings.zsh"
-
-# enable ripgrep in fzf
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND="rg --files"
-  export FZF_DEFAULT_OPTS="-m --height 50% --border"
-fi
 
 # Launch zsh's completion system
 compinit

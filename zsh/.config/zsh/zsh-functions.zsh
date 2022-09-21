@@ -1,8 +1,16 @@
-# Function to source files if they exist
+# add to PATH if necessary
+function zsh_add_path() {
+  if [[ ! "$PATH" == "*${1}*" ]]; then
+    export PATH="${1}${PATH:+:}${PATH:-}"
+  fi
+}
+
+# source file if it exists
 function zsh_add_file() {
   [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
 }
 
+# source plugin if it exists / clone if necessary
 function zsh_add_plugin() {
   PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
   if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
@@ -14,6 +22,7 @@ function zsh_add_plugin() {
   fi
 }
 
+# source completion if it exists / clone if necessary
 function zsh_add_completion() {
   PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
   if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
