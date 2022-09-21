@@ -3,7 +3,7 @@ zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 zstyle ':completion:*' menu select
 
 # Mark compinit as an internal function, not an external program
-autoload -Uz compinit
+autoload -Uz compinit && compinit
 
 # show completion lists
 zmodload zsh/complist
@@ -37,6 +37,3 @@ unsetopt BEEP
 HISTFILE="$ZDOTDIR/zsh_history"
 HISTSIZE=1000000
 SAVEHIST=1000000
-
-# Launch zsh's completion system
-compinit

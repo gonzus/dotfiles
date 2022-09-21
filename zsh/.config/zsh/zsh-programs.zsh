@@ -1,2 +1,2 @@
 # get some bovine wisdom
-fortune | cowsay -f tux | lolcat
+# fortune | cowsay -f tux | lolcat
