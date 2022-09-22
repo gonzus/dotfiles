@@ -2,6 +2,9 @@
 export EDITOR=/Users/gonzo/.local/bin/lvim
 export VISUAL=$EDITOR
 
+# make sure gpg knows our tty
+export GPG_TTY=$(tty)
+
 # If possible, use colors everywhere
 export CLICOLOR=1
 
