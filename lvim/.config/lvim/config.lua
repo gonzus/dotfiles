@@ -9,10 +9,11 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
-vim.opt.cmdheight = 1
-vim.opt.wrap = true
-vim.opt.whichwrap = 'b,s' -- allow only backspace and space keys to wrap around lines
-vim.cmd [[set iskeyword+=-]] -- by default, include '-' as part of a word
+vim.opt.cmdheight = 1 -- window with command output has one line
+vim.opt.wrap = true -- wrap long lines
+vim.opt.whichwrap:append('b,s') -- allow only backspace and space keys to wrap around lines
+vim.opt.iskeyword:append("-") -- by default, include '-' as part of a word
+vim.opt.shortmess:append("c") -- avoid "hit enter" prompts for completion menus
 
 -- this does not work
 -- vim.cmd [[hi CursorLine gui=underline cterm=underline]] -- underline cursor line
@@ -89,13 +90,14 @@ lvim.builtin.nvimtree.setup.update_cwd = true
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "comment",
+  "java",
   "javascript",
   "json",
   "lua",
   "python",
   "typescript",
   "rust",
-  "java",
   "yaml",
   "zig",
 }
@@ -223,15 +225,22 @@ lvim.plugins = {
     requires = { 'rktjmp/lush.nvim' },
   },
 
-  -- highlight special comments, such as TODO:
-  {
-    "folke/todo-comments.nvim",
-    event = "BufRead",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("todo-comments").setup {}
-    end,
-  },
+  -- easy motions
+  -- {
+  --   'phaazon/hop.nvim',
+  --   event = "BufRead",
+  --   branch = 'v2', -- optional but strongly recommended
+  --   config = function()
+  --     local hop = require('hop')
+  --     hop.setup { keys = 'etovxqpdygfblzhckisuran' }
+
+  --     local hint = require('hop.hint')
+  --     lvim.keys.normal_mode["f"] = "<cmd>lua hop.hint_char1({ direction = hint.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
+  --     lvim.keys.normal_mode["F"] = "<cmd>lua hop.hint_char1({ direction = hint.HintDirection.BEFORE_CURSOR, current_line_only = true }<cr>"
+  --     lvim.keys.normal_mode["t"] = "<cmd>lua hop.hint_char1({ direction = hint.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
+  --     lvim.keys.normal_mode["T"] = "<cmd>lua hop.hint_char1({ direction = hint.HintDirection.BEFORE_CURSOR, current_line_only = true }<cr>"
+  --   end,
+  -- },
 
   -- visible indentation lines
   {
