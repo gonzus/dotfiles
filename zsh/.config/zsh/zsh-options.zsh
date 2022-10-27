@@ -22,7 +22,7 @@ setopt INTERACTIVE_COMMENTS
 setopt APPEND_HISTORY
 
 # zsh sessions will share their history
-setopt SHARE_HISTORY
+# setopt SHARE_HISTORY
 
 # Allow tab completion in the middle of a word.
 setopt COMPLETE_IN_WORD
