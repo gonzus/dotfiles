@@ -2,11 +2,16 @@
 export ZSH_COMPDUMP=$HOME/.cache/zsh/zcompdump-$HOST
 
 # make sure anything using $EDITOR finds vim; for example, key "v" inside "less"
-# export EDITOR=/Users/gonzo/.local/bin/lvim
+# export EDITOR=$HOME/.local/bin/lvim
 # export EDITOR=/usr/bin/vi
 # export EDITOR=/usr/bin/nvim
-export EDITOR=/Users/gonzo/.local/bin/lvim
+export EDITOR=$HOME/.local/bin/lvim
 export VISUAL=$EDITOR
+
+# make sure C / C++ can compile against homebrew libraries
+export HOMEBREW_DIR=$HOME/homebrew
+export CPATH=$HOMEBREW_DIR/include
+export LIBRARY_PATH=$HOMEBREW_DIR/lib
 
 # make sure gpg knows our tty
 export GPG_TTY=$(tty)
