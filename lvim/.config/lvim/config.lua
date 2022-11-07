@@ -19,13 +19,13 @@ vim.opt.shortmess:append("c") -- avoid "hit enter" prompts for completion menus
 -- vim.cmd [[hi CursorLine gui=underline cterm=underline]] -- underline cursor line
 
 lvim.log.level = "warn"
-lvim.format_on_save = true
-lvim.colorscheme = "jellybeans-nvim"
+lvim.format_on_save.enabled = false
+lvim.colorscheme = "lunar"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
-lvim.leader = "\\"
+lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- This unsets the 'last search pattern' register by hitting Ctrl-L
@@ -56,6 +56,10 @@ lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 --   },
 -- }
 
+-- Change theme settings
+-- lvim.builtin.theme.options.dim_inactive = true
+-- lvim.builtin.theme.options.style = "storm"
+
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -72,44 +76,36 @@ lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.nvimtree.setup.renderer.group_empty = true
-lvim.builtin.nvimtree.setup.update_cwd = true
-
--- lvim.builtin.lualine.sections.lualine_a = { 'filename' }
--- lvim.builtin.lualine.sections.lualine_b = { 'branch' }
--- lvim.builtin.lualine.sections.lualine_c = { 'diagnostics' }
--- lvim.builtin.lualine.sections.lualine_x = { 'encoding' }
--- lvim.builtin.lualine.sections.lualine_y = { 'progress' }
--- lvim.builtin.lualine.sections.lualine_z = { 'location' }
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
-  "comment",
+  "cpp",
+  "css",
   "java",
   "javascript",
   "json",
   "lua",
   "python",
-  "typescript",
   "rust",
+  "tsx",
+  "typescript",
   "yaml",
   "zig",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.highlight.enable = true
 
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
 -- lvim.lsp.installer.setup.ensure_installed = {
---     "sumeko_lua",
+--     "sumneko_lua",
 --     "jsonls",
 -- }
 -- -- change UI setting of `LspInstallInfo`
@@ -181,105 +177,18 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- Additional Plugins
+-- lvim.plugins = {
+--     {
+--       "folke/trouble.nvim",
+--       cmd = "TroubleToggle",
+--     },
+-- }
+
 lvim.plugins = {
-  -- make nvim startup faster?
-  {
-    'lewis6991/impatient.nvim',
-    event = { "VimEnter" },
-    config = function()
-      require('impatient')
-    end,
-  },
-
-  -- restore last position when opening a file
-  {
-    "ethanholz/nvim-lastplace",
-    event = "BufRead",
-    config = function()
-      local opts = {
-        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-        lastplace_ignore_filetype = {
-          "gitcommit", "gitrebase", "svn", "hgcommit",
-        },
-        lastplace_open_folds = true,
-      }
-      require("nvim-lastplace").setup(opts)
-    end,
-  },
-
-  -- removes all trailing whitespace & empty lines at end of buffers
-  {
-    "mcauley-penney/tidy.nvim",
-    event = "BufWritePre",
-    config = function()
-      local opts = {
-        filetype_exclude = { "markdown", "diff" },
-      }
-      require("tidy").setup(opts)
-    end,
-  },
-
   -- beautiful color scheme
   {
     'metalelf0/jellybeans-nvim',
     requires = { 'rktjmp/lush.nvim' },
-  },
-
-  -- easy motions
-  -- {
-  --   'phaazon/hop.nvim',
-  --   event = "BufRead",
-  --   branch = 'v2', -- optional but strongly recommended
-  --   config = function()
-  --     local hop = require('hop')
-  --     hop.setup { keys = 'etovxqpdygfblzhckisuran' }
-
-  --     local hint = require('hop.hint')
-  --     lvim.keys.normal_mode["f"] = "<cmd>lua hop.hint_char1({ direction = hint.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
-  --     lvim.keys.normal_mode["F"] = "<cmd>lua hop.hint_char1({ direction = hint.HintDirection.BEFORE_CURSOR, current_line_only = true }<cr>"
-  --     lvim.keys.normal_mode["t"] = "<cmd>lua hop.hint_char1({ direction = hint.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
-  --     lvim.keys.normal_mode["T"] = "<cmd>lua hop.hint_char1({ direction = hint.HintDirection.BEFORE_CURSOR, current_line_only = true }<cr>"
-  --   end,
-  -- },
-
-  -- visible indentation lines
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
-    config = function()
-      vim.opt.list = true
-      -- vim.opt.listchars:append "space:⋅"
-      -- vim.opt.listchars:append "space:"
-      vim.opt.listchars:append "eol:↴"
-
-      local opts = {
-        filetype_exclude = {
-          "alpha",
-          "help",
-          "terminal",
-          "dashboard",
-          "lspinfo",
-          "lsp-installer",
-          "mason",
-          "startify",
-          "packer",
-          "neogitstatus",
-          "NvimTree",
-          "Trouble",
-        },
-        buftype_exclude = { "terminal" },
-        bufname_exclude = { "config.lua" },
-
-        show_end_of_line = true,
-        show_current_context = true,
-        show_current_context_start = true,
-        show_trailing_blankline_indent = false,
-        show_first_indent_level = false,
-        use_treesitter = false,
-      }
-
-      require("indent_blankline").setup(opts)
-    end,
   },
 }
 
