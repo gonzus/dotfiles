@@ -20,12 +20,15 @@ vim.opt.shortmess:append("c") -- avoid "hit enter" prompts for completion menus
 
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
-lvim.colorscheme = "lunar"
+-- lvim.colorscheme = "lunar"
+-- lvim.colorscheme = "nord"
+lvim.colorscheme = "jellybeans-nvim"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
-lvim.leader = "space"
+-- lvim.leader = "space"
+lvim.leader = "\\"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- This unsets the 'last search pattern' register by hitting Ctrl-L
@@ -84,6 +87,7 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "comment",
   "cpp",
   "css",
   "java",
@@ -185,10 +189,36 @@ lvim.builtin.treesitter.highlight.enable = true
 -- }
 
 lvim.plugins = {
-  -- beautiful color scheme
+  -- beautiful color schemes
+  { 'metalelf0/jellybeans-nvim', requires = { 'rktjmp/lush.nvim' } },
+  { 'shaunsingh/nord.nvim' },
+
+  -- restore last position when opening a file
   {
-    'metalelf0/jellybeans-nvim',
-    requires = { 'rktjmp/lush.nvim' },
+    "ethanholz/nvim-lastplace",
+    event = "BufRead",
+    config = function()
+      local opts = {
+        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+        lastplace_ignore_filetype = {
+          "gitcommit", "gitrebase", "svn", "hgcommit",
+        },
+        lastplace_open_folds = true,
+      }
+      require("nvim-lastplace").setup(opts)
+    end,
+  },
+
+  -- removes all trailing whitespace & empty lines at end of buffers
+  {
+    "mcauley-penney/tidy.nvim",
+    event = "BufWritePre",
+    config = function()
+      local opts = {
+        filetype_exclude = { "markdown", "diff" },
+      }
+      require("tidy").setup(opts)
+    end,
   },
 }
 
@@ -198,10 +228,11 @@ lvim.plugins = {
 --   -- enable wrap mode for json files only
 --   command = "setlocal wrap",
 -- })
+
+-- let treesitter use bash highlight for zsh files as well
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "zsh",
   callback = function()
-    -- let treesitter use bash highlight for zsh files as well
     require("nvim-treesitter.highlight").attach(0, "bash")
   end,
 })
