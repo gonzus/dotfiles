@@ -15,6 +15,10 @@ vim.opt.whichwrap:append('b,s') -- allow only backspace and space keys to wrap a
 vim.opt.iskeyword:append("-") -- by default, include '-' as part of a word
 vim.opt.shortmess:append("c") -- avoid "hit enter" prompts for completion menus
 
+-- lvim.builtin.breadcrumbs.active = false
+-- lvim.builtin.bufferline.active = false
+-- vim.opt.showtabline = 0
+
 -- this does not work
 -- vim.cmd [[hi CursorLine gui=underline cterm=underline]] -- underline cursor line
 
@@ -22,7 +26,9 @@ lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
 -- lvim.colorscheme = "lunar"
 -- lvim.colorscheme = "nord"
-lvim.colorscheme = "jellybeans-nvim"
+-- lvim.colorscheme = "jellybeans-nvim"
+lvim.colorscheme = "darkplus"
+
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -192,6 +198,7 @@ lvim.plugins = {
   -- beautiful color schemes
   { 'metalelf0/jellybeans-nvim', requires = { 'rktjmp/lush.nvim' } },
   { 'shaunsingh/nord.nvim' },
+  { 'lunarvim/darkplus.nvim' },
 
   -- restore last position when opening a file
   {
