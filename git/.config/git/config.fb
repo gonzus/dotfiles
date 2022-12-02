@@ -1,0 +1,5 @@
+# vi: ft=gitconfig
+
+[user]
+  name = Gonzalo Diethelm
+  email = gonzo@fb.com

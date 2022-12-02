@@ -1,0 +1,5 @@
+**/*.sublime-workspace
+**/*.o
+**/*.swp
+**/*~
+**/zig-cache/

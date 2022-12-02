@@ -1,11 +1,16 @@
+# vi: ft=gitconfig
+
 [user]
   name = Gonzalo Diethelm
-  email = gonzo@fb.com
+  email = gonzalo.diethelm@gmail.com
+
+[includeIf "gitdir:~/src/fb/"]
+    path = ~/.config/git/config.fb
 
 [core]
   editor=$EDITOR
   pager = delta
-	excludesfile = /Users/gonzo/.gitignore
+	excludesfile = ~/.config/git/ignore
 
 [init]
   defaultBranch = master
