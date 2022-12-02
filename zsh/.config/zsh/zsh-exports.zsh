@@ -8,10 +8,15 @@ export ZSH_COMPDUMP=$HOME/.cache/zsh/zcompdump-$HOST
 export EDITOR=$HOME/.local/bin/lvim
 export VISUAL=$EDITOR
 
+export TERMINAL="kitty"
+export BROWSER="chrome"
+
 # make sure C / C++ can compile against homebrew libraries
+export LOCAL_DIR=/usr/local
 export HOMEBREW_DIR=$HOME/homebrew
-export CPATH=$HOMEBREW_DIR/include
-export LIBRARY_PATH=$HOMEBREW_DIR/lib
+
+export CPATH=$HOMEBREW_DIR/include:$LOCAL_DIR/include
+export LIBRARY_PATH=$HOMEBREW_DIR/lib:$LOCAL_DIR/lib
 
 # make sure gpg knows our tty
 export GPG_TTY=$(tty)
