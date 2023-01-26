@@ -1,3 +1,10 @@
+# # activate brew completions
+# # THIS DOES NOT WORK; TRY echo $FPATH to see the horror
+# if type brew &>/dev/null
+# then
+#   export FPATH="$(brew --prefix)/share/zsh/site-functions:/Applications/kitty.app/Contents/Resources/kitty/shell-integration/zsh/completions:/usr/local/share/zsh/site-functions:/usr/share/zsh/site-functions:/usr/share/zsh/5.8.1/functions"
+# fi
+
 # Remember where config is, in case we run compinstall again
 zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 zstyle ':completion:*' menu select
