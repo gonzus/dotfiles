@@ -18,6 +18,14 @@ export HOMEBREW_DIR=$HOME/homebrew
 export CPATH=$HOMEBREW_DIR/include:$LOCAL_DIR/include
 export LIBRARY_PATH=$HOMEBREW_DIR/lib:$LOCAL_DIR/lib
 
+# options for less:
+#
+# -F: do not page if the content fills one screen
+# -i: ignore case when you search, unless pattern has uppercase characters
+# -R: enable color and formatting
+# -X: leave the contents on the screen when less quits
+export LESS=FiRX
+
 # make sure gpg knows our tty
 export GPG_TTY=$(tty)
 
