@@ -1,1 +1,1 @@
-setlocal tabstop=2 shiftwidth=2 expandtab cindent cinoptions+=l1
+setlocal tabstop=2 shiftwidth=2 expandtab cindent cinoptions+=l1 iskeyword-=-
